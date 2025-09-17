@@ -28,9 +28,8 @@ export class UserService {
 
   // Obtener usuario por id
   getUser(id: number): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/${id}`);
-    return this.http.get<ApiUserResponse>(`${this.apiUrl}/${id}`).pipe(
-      map(response => response.data)
+    return this.getUsers().pipe(
+      map(users => users.find(user => user.id === id)!)
     );
   }
 
@@ -49,3 +48,6 @@ export class UserService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }
+
+
+

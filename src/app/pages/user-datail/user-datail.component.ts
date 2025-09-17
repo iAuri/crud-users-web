@@ -22,26 +22,45 @@ export class UserDatailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const userId = this.route.snapshot.paramMap.get('id');
-    if (userId) {
-      this.userService.getUser(+userId).subscribe({
-        next: (data) => {
-          this.user = data;
-          this.loading = false;
-        },
-        error: (err) => {
-          console.error('Error fetching user:', err);
-          this.loading = false;
-          this.router.navigate(['/home']);
-        }
-      });
-    }
+    this.route.paramMap.subscribe(params => {
+      const userId = params.get('id');
+      if (userId) {
+        this.userService.getUser(+userId).subscribe({
+          next: (data) => {
+            this.user = data;
+            this.loading = false;
+          },
+          error: (err) => {
+            console.error('Error fetching user:', err);
+            this.loading = false;
+            this.router.navigate(['/home']);
+          }
+        });
+      }
+    });
   }
 
-  deleteUser(): void {
-    if (this.user && confirm(`¿Estás seguro de que quieres eliminar a ${this.user.first_name} ${this.user.last_name}?`)) {
-      alert('Usuario eliminado. Volviendo al listado.');
-      this.router.navigate(['/home']);
+  showConfirmDeleteModal = false;
+  showSuccessModal = false;
+
+  promptDelete(): void {
+    this.showConfirmDeleteModal = true;
+  }
+
+  cancelDelete(): void {
+    this.showConfirmDeleteModal = false;
+  }
+
+  confirmDelete(): void {
+    if (this.user) {
+      this.showConfirmDeleteModal = false;
+      this.showSuccessModal = true;
+      
+      // Simulate a delay for showing the success message before redirecting
+      setTimeout(() => {
+        this.router.navigate(['/home']);
+        this.showSuccessModal = false;
+      }, 2000);
     }
   }
 }
