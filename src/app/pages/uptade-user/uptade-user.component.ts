@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-uptade-user',
-  imports: [],
   templateUrl: './uptade-user.component.html',
   styleUrl: './uptade-user.component.css'
 })

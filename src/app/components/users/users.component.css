@@ -1,0 +1,16 @@
+/* Contenedor general */
+.container {
+  max-width: 1200px;
+}
+
+/* Cada tarjeta ocupa un espacio limpio y con separación */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Ajustes de columnas */
+.col-md-3 {
+  display: flex;
+}

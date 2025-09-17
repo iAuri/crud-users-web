@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <div class="row">
+    <div *ngFor="let user of users" class="col-md-3 mb-4">
+      <app-user-card
+        [user]="user"
+        (delete)="onDeleteUser($event)"
+        (update)="onUpdateUser($event)"
+        (view)="onViewUser($event)">
+      </app-user-card>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
 import { UserDatailComponent } from './pages/user-datail/user-datail.component';
@@ -15,15 +14,3 @@ export const routes: Routes = [
   { path: 'updateuser/:id', component: UptadeUserComponent},
   { path: '**', redirectTo: '/home' }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-
-export class AppRoutingModule {}
-
-
-
-
-
