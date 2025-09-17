@@ -11,9 +11,7 @@
         <div class="col-md-6 mb-4">
           <app-user-card
             [user]="user"
-            (delete)="promptDelete($event)"
-            (update)="onUpdateUser($event)"
-            (view)="onViewUser($event)">
+            (delete)="promptDelete($event)">
           </app-user-card>
         </div>
       } @empty {

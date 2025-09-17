@@ -1,4 +1,4 @@
-/* Modal Styles */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1050; /* Ensure it's above other content */
+  z-index: 1050;
 }
 
 .modal-content {
@@ -22,7 +22,7 @@
   text-align: center;
 }
 
-/* Pagination Styles */
+
 .pagination .page-item .page-link {
   color: #0d6efd;
   border-radius: 50%;

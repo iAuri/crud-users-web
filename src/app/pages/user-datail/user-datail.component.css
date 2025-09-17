@@ -32,13 +32,22 @@
   font-weight: 300;
 }
 
-.vr {
-  height: 100%;
-  width: 1px;
-  background-color: #e9ecef;
+.user-detail-container .row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
-/* Modal Styles */
+.user-detail-container .col-md-5,
+.user-detail-container .col-md-6 {
+  text-align: center;
+}
+
+.vr {
+  border-left: 2px solid #000000;
+}
+
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -49,7 +58,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1050; /* Ensure it's above other content */
+  z-index: 1050;
 }
 
 .modal-content {

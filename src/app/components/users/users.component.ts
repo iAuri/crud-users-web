@@ -14,13 +14,13 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
   loading = true;
-  
-  // Properties for deletion modal
+
+  // Propiedades para eliminar usuarios
   showConfirmDeleteModal = false;
   showSuccessModal = false;
   userToDelete: User | null = null;
 
-  // Properties for pagination
+  // Propiedades para la paginacion
   allUsers: User[] = [];
   paginatedUsers: User[] = [];
   currentPage = 1;
@@ -44,7 +44,7 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  // --- PAGINATION LOGIC ---
+  // Logica de paginacions
   updatePaginatedUsers(): void {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
@@ -58,7 +58,7 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  // --- DELETE LOGIC ---
+  // ,ogica de eliminacion
   promptDelete(id: number): void {
     this.userToDelete = this.allUsers.find(user => user.id === id) || null;
     if (this.userToDelete) {
@@ -76,17 +76,17 @@ export class UsersComponent implements OnInit {
       this.allUsers = this.allUsers.filter(user => user.id !== this.userToDelete!.id);
       this.totalPages = Math.ceil(this.allUsers.length / this.itemsPerPage);
 
-      // Adjust current page if it's now out of bounds
+      // ajustar la pagina actual si es necesario
       if (this.currentPage > this.totalPages) {
         this.currentPage = this.totalPages;
       }
-      // If all users were deleted, reset to page 1
+      // Si todos los usuarios son eliminados, volver a la pagina 1
       if (this.currentPage === 0 && this.totalPages > 0) {
         this.currentPage = 1;
       }
 
       this.updatePaginatedUsers();
-      
+
       this.showConfirmDeleteModal = false;
       this.showSuccessModal = true;
       this.userToDelete = null;
@@ -97,16 +97,7 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  // --- NAVIGATION ---
-  onUpdateUser(id: number): void {
-    this.router.navigate(['/updateuser', id]);
-  }
-
-  onViewUser(id: number): void {
-    this.router.navigate(['/user', id]);
-  }
-  
-  // Helper to get pages for pagination controls
+  // ayuda a navegar a la pagina de detalles del usuario
   get pages(): number[] {
     const pagesArray = [];
     for (let i = 1; i <= this.totalPages; i++) {

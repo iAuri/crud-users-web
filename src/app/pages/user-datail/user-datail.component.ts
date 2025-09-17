@@ -55,8 +55,8 @@ export class UserDatailComponent implements OnInit {
     if (this.user) {
       this.showConfirmDeleteModal = false;
       this.showSuccessModal = true;
-      
-      // Simulate a delay for showing the success message before redirecting
+
+      // Esto simula que carga
       setTimeout(() => {
         this.router.navigate(['/home']);
         this.showSuccessModal = false;

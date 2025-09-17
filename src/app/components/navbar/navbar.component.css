@@ -6,21 +6,21 @@
 }
 
 .navbar-brand img {
-  border-radius: 50%; /* redondear logo si quieres */
+  border-radius: 50%;
   transition: 0.5s all ease-in-out;
 }
 .navbar-brand img:hover {
-  border-radius: 50%; /* redondear logo si quieres */
+  border-radius: 50%;
   scale: 1.1;
 
 }
 .nav-link {
-  font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
+  font-size: 1.2rem;
   font-weight: 500;
   margin-left: 15px;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: darkred; /* rojo oscuro */
+  color: darkred;
 }

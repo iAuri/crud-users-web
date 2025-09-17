@@ -7,8 +7,8 @@
 
   </div>
   <div class="card-footer d-flex justify-content-around">
-    <button class="btn btn-sm btn-outline-primary" (click)="onView()">Ver</button>
-    <button class="btn btn-sm btn-outline-warning" (click)="onUpdate()">Editar</button>
+    <button class="btn btn-sm btn-outline-primary" [routerLink]="['/user', user.id]">Ver</button>
+    <button class="btn btn-sm btn-outline-warning" [routerLink]="['/updateuser', user.id]">Editar</button>
     <button class="btn btn-sm btn-outline-danger" (click)="onDelete()">Borrar</button>
   </div>
 </div>

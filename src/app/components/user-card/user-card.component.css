@@ -5,19 +5,19 @@
   overflow: hidden;
 }
 
-/* Efecto hover */
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* Imagen del usuario */
+
 .card img {
   border: 3px solid #eee;
   padding: 3px;
 }
 
-/* Título y texto */
+
 .card-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -29,7 +29,7 @@
   color: #666;
 }
 
-/* Footer con botones */
+
 .card-footer {
   background-color: #fafafa;
   border-top: none;
