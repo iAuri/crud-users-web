@@ -11,7 +11,7 @@
         <div class="col-md-3 mb-4">
           <app-user-card
             [user]="user"
-            (delete)="onDeleteUser($event)"
+            (delete)="promptDelete($event)"
             (update)="onUpdateUser($event)"
             (view)="onViewUser($event)">
           </app-user-card>
@@ -24,3 +24,29 @@
     </div>
   }
 </div>
+
+<!-- Confirmation Modal -->
+@if (showConfirmDeleteModal) {
+  <div class="modal-overlay">
+    <div class="modal-content">
+      <h4 class="mb-3">Confirmar Eliminación</h4>
+      @if (userToDelete) {
+        <p>¿Estás seguro de que quieres eliminar a {{ userToDelete.first_name }} {{ userToDelete.last_name }}?</p>
+      }
+      <div class="d-flex justify-content-end mt-4">
+        <button (click)="cancelDelete()" class="btn btn-secondary me-2">Cancelar</button>
+        <button (click)="confirmDelete()" class="btn btn-danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- Success Modal -->
+@if (showSuccessModal) {
+  <div class="modal-overlay">
+    <div class="modal-content">
+      <h4 class="text-success mb-3">¡Eliminado!</h4>
+      <p>El usuario ha sido eliminado correctamente.</p>
+    </div>
+  </div>
+}
