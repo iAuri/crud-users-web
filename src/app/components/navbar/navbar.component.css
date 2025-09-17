@@ -7,8 +7,13 @@
 
 .navbar-brand img {
   border-radius: 50%; /* redondear logo si quieres */
+  transition: 0.5s all ease-in-out;
 }
+.navbar-brand img:hover {
+  border-radius: 50%; /* redondear logo si quieres */
+  scale: 1.1;
 
+}
 .nav-link {
   font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
   font-weight: 500;

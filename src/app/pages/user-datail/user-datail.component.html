@@ -22,6 +22,8 @@
         <div class="col-md-6 text-center text-md-start mt-4 mt-md-0">
           <h2 class="display-4">{{ user.first_name }}</h2>
           <h3 class="text-muted fw-light">{{ user.last_name }}</h3>
+          <h6 class="text-muted fw-light">Nombre: {{ user.first_name }} {{ user.last_name }}</h6>
+          <h6 class="text-muted fw-light">Email: {{ user.email }}</h6>
           <div class="mt-4">
             <button (click)="promptDelete()" class="btn btn-danger me-2">Eliminar</button>
             <button [routerLink]="['/updateuser', user.id]" class="btn btn-warning me-2">Actualizar</button>
