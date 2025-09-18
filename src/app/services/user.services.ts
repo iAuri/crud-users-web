@@ -7,10 +7,6 @@ interface ApiResponse {
   results: User[];
 }
 
-interface ApiUserResponse {
-  data: User;
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,10 +23,8 @@ export class UserService {
   }
 
   // Obtener usuario por id
-  getUser(id: number): Observable<User> {
-    return this.getUsers().pipe(
-      map(users => users.find(user => user.id === id)!)
-    );
+  getUser(_id: string): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/${_id}`);
   }
 
   // Crear nuevo usuario
@@ -39,15 +33,12 @@ export class UserService {
   }
 
   // Actualizar usuario
-  updateUser(id: number, user: Partial<User>): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/${id}`, user);
+  updateUser(_id: string, user: Partial<User>): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/${_id}`, user);
   }
 
   // Eliminar usuario
-  deleteUser(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+  deleteUser(_id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${_id}`);
   }
 }
-
-
-

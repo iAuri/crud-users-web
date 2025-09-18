@@ -6,9 +6,11 @@
 <p class="card-text text-muted">{{ user.email }}</p>
 
   </div>
-  <div class="card-footer d-flex justify-content-around">
-    <button class="btn btn-sm btn-outline-primary" [routerLink]="['/user', user.id]">Ver</button>
-    <button class="btn btn-sm btn-outline-warning" [routerLink]="['/updateuser', user.id]">Editar</button>
-    <button class="btn btn-sm btn-outline-danger" (click)="onDelete()">Borrar</button>
+  <div class="card-footer">
+    <div class="d-inline-flex gap-2" role="group" aria-label="Acciones de usuario">
+      <button class="btn btn-sm btn-outline-primary" [routerLink]="['/user', user._id]">Ver</button>
+      <button class="btn btn-sm btn-outline-warning" [routerLink]="['/updateuser', user._id]">Editar</button>
+      <button class="btn btn-sm btn-outline-danger" (click)="onDelete()">Borrar</button>
+    </div>
   </div>
 </div>

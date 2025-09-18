@@ -22,20 +22,27 @@ export class UserDatailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log('UserDatailComponent: ngOnInit called');
     this.route.paramMap.subscribe(params => {
-      const userId = params.get('id');
+      const userId = params.get('_id');
+      console.log('UserDatailComponent: userId from route params:', userId);
       if (userId) {
-        this.userService.getUser(+userId).subscribe({
+        this.userService.getUser(userId as string).subscribe({
           next: (data) => {
+            console.log('UserDatailComponent: User data fetched successfully:', data);
             this.user = data;
             this.loading = false;
           },
           error: (err) => {
-            console.error('Error fetching user:', err);
+            console.error('UserDatailComponent: Error fetching user:', err);
             this.loading = false;
             this.router.navigate(['/home']);
           }
         });
+      } else {
+        console.warn('UserDatailComponent: No userId found in route params. Redirecting to home.');
+        this.loading = false;
+        this.router.navigate(['/home']);
       }
     });
   }
@@ -56,11 +63,20 @@ export class UserDatailComponent implements OnInit {
       this.showConfirmDeleteModal = false;
       this.showSuccessModal = true;
 
-      // Esto simula que carga
-      setTimeout(() => {
-        this.router.navigate(['/home']);
-        this.showSuccessModal = false;
-      }, 2000);
+      this.userService.deleteUser(this.user._id).subscribe({
+        next: () => {
+          this.showSuccessModal = true;
+          setTimeout(() => {
+            this.router.navigate(['/home']);
+            this.showSuccessModal = false;
+          }, 2000);
+        },
+        error: (err) => {
+          console.error('Error deleting user:', err);
+          this.showSuccessModal = false;
+          // Optionally, show an error message to the user
+        }
+      });
     }
   }
 }

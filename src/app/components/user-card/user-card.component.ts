@@ -12,10 +12,10 @@ import { RouterLink } from '@angular/router';
 })
 export class UserCardComponent {
   @Input() user!: User;   // Recibe un usuario desde UsersComponent
-  @Output() delete = new EventEmitter<number>(); // Emitir evento al padre
+  @Output() delete = new EventEmitter<string>(); // Emitir evento al padre
 
   onDelete() {
-    this.delete.emit(this.user.id);
+    this.delete.emit(this.user._id);
   }
 }
 

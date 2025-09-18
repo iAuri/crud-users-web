@@ -10,7 +10,7 @@
       <div class="row align-items-center">
         <!-- Columna de la imagen -->
         <div class="col-md-5 text-center">
-          <img [src]="user.image" class="user-image-large" alt="Foto de {{ user.first_name }}">
+          <img [src]="user.image || 'https://placehold.co/150'" class="user-image-large" alt="Foto de {{ user.first_name }}">
         </div>
 
         <!-- Línea separadora vertical -->
@@ -26,7 +26,7 @@
           <h6 class="text-muted fw-light">Email: {{ user.email }}</h6>
           <div class="mt-4">
             <button (click)="promptDelete()" class="btn btn-danger me-2">Eliminar</button>
-            <button [routerLink]="['/updateuser', user.id]" class="btn btn-warning me-2">Actualizar</button>
+            <button [routerLink]="['/updateuser', user._id]" class="btn btn-warning me-2">Actualizar</button>
             <button [routerLink]="['/home']" class="btn btn-secondary">Volver al listado</button>
           </div>
         </div>

@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { UsersFormComponent } from '../../components/users-form/users-form.component';
 
 @Component({
   selector: 'app-uptade-user',
+  standalone: true,
+  imports: [UsersFormComponent],
   templateUrl: './uptade-user.component.html',
-  styleUrl: './uptade-user.component.css'
+  styleUrls: ['./uptade-user.component.css']
 })
 export class UptadeUserComponent {
-
+  @Input() _id: string = "";
 }

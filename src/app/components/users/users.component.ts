@@ -59,8 +59,8 @@ export class UsersComponent implements OnInit {
   }
 
   // ,ogica de eliminacion
-  promptDelete(id: number): void {
-    this.userToDelete = this.allUsers.find(user => user.id === id) || null;
+  promptDelete(_id: string): void {
+    this.userToDelete = this.allUsers.find(user => user._id === _id) || null;
     if (this.userToDelete) {
       this.showConfirmDeleteModal = true;
     }
@@ -73,7 +73,7 @@ export class UsersComponent implements OnInit {
 
   confirmDelete(): void {
     if (this.userToDelete) {
-      this.allUsers = this.allUsers.filter(user => user.id !== this.userToDelete!.id);
+      this.allUsers = this.allUsers.filter(user => user._id !== this.userToDelete!._id);
       this.totalPages = Math.ceil(this.allUsers.length / this.itemsPerPage);
 
       // ajustar la pagina actual si es necesario
