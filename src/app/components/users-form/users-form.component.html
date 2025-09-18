@@ -7,26 +7,36 @@
         <div class="mb-3">
           <label for="first_name" class="form-label">Nombre</label>
           <input type="text" id="first_name" formControlName="first_name" class="form-control">
-          <div *ngIf="userForm.get('first_name')?.invalid && userForm.get('first_name')?.touched" class="text-danger">
-            El nombre es requerido.
-          </div>
+          @if (userForm.get('first_name')?.invalid && userForm.get('first_name')?.touched) {
+            <div class="text-danger">
+              El nombre es requerido.
+            </div>
+          }
         </div>
 
         <div class="mb-3">
           <label for="last_name" class="form-label">Apellidos</label>
           <input type="text" id="last_name" formControlName="last_name" class="form-control">
-          <div *ngIf="userForm.get('last_name')?.invalid && userForm.get('last_name')?.touched" class="text-danger">
-            El apellido es requerido.
-          </div>
+          @if (userForm.get('last_name')?.invalid && userForm.get('last_name')?.touched) {
+            <div class="text-danger">
+              El apellido es requerido.
+            </div>
+          }
         </div>
 
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
           <input type="email" id="email" formControlName="email" class="form-control">
-          <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-danger">
-            <div *ngIf="userForm.get('email')?.errors?.['required']">El email es requerido.</div>
-            <div *ngIf="userForm.get('email')?.errors?.['email']">El formato del email no es válido.</div>
-          </div>
+          @if (userForm.get('email')?.invalid && userForm.get('email')?.touched) {
+            <div class="text-danger">
+              @if (userForm.get('email')?.errors?.['required']) {
+                <div>El email es requerido.</div>
+              }
+              @if (userForm.get('email')?.errors?.['email']) {
+                <div>El formato del email no es válido.</div>
+              }
+            </div>
+          }
         </div>
 
         <div class="d-grid">

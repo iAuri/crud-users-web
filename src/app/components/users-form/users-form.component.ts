@@ -4,12 +4,12 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.services';
 import { User } from '../../interfaces/user.interface';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-users-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './users-form.component.html',
   styleUrls: ['./users-form.component.css']
 })
