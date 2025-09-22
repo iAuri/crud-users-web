@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
   showSuccessModal = false;
   userToDelete: User | null = null;
 
-  // Propiedades para la paginacion
+  // Propiedades para la paginacion del listado de usuarios
   allUsers: User[] = [];
   paginatedUsers: User[] = [];
   currentPage = 1;
@@ -29,6 +29,7 @@ export class UsersComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {}
 
+  // Obtener usuarios al iniciar el componente
   ngOnInit(): void {
     this.userService.getUsers().subscribe({
       next: (data) => {
@@ -51,6 +52,7 @@ export class UsersComponent implements OnInit {
     this.paginatedUsers = this.allUsers.slice(startIndex, endIndex);
   }
 
+  // Logica de paginacion
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;

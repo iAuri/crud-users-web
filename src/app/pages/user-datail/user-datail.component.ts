@@ -74,7 +74,6 @@ export class UserDatailComponent implements OnInit {
         error: (err) => {
           console.error('Error deleting user:', err);
           this.showSuccessModal = false;
-          // Optionally, show an error message to the user
         }
       });
     }
